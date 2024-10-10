@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/benja/CLionProjects/Taller 1 Estructura de Datos
+# Install script for directory: C:/Users/benja/CLionProjects/Taller-1-estructura-de-datos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/benja/CLionProjects/Taller 1 Estructura de Datos/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/benja/CLionProjects/Taller-1-estructura-de-datos/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

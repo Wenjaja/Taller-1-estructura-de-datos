@@ -6,6 +6,7 @@ Sistema* sistema = nullptr; //atributo de sistema
 
 void menu() //Función para desplegar el menú
 {
+    cout<<"hola"<<endl;
     cout<< "============================"<<endl;
     cout<< " Bienvenido a la biblioteca "<<endl;
     cout<< " Ingrese la opción que desea:"<<endl;
