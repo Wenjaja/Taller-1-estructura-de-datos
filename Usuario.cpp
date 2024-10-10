@@ -70,7 +70,7 @@ int Usuario::getnumPrestados() const
 {
     return this->cantLibros;
 }
-//Método para mostrar la información del usuario
+//Metodo para mostrar la información del usuario
 std::string Usuario::mostrarInfo() const
 {
     std::string info = "Nombre: " + this->nombre + "\n"

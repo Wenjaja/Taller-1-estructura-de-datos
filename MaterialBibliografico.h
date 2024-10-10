@@ -14,7 +14,7 @@ class MaterialBibliografico {
     public:
     //Constructor
     MaterialBibliografico(const std::string& nombre, const std::string&isbn, const std::string& autor,const std::string& tipo);
-    //Método para heredar, que se encarga de mostrar la informacion del material
+    //Metodo para heredar, que se encarga de mostrar la informacion del material
     virtual std::string mostrarInfo() const;
     //Destructor
     virtual ~MaterialBibliografico();
@@ -25,7 +25,7 @@ class MaterialBibliografico {
     [[nodiscard]] bool getPrestado() const;
     void setPrestado(bool estado);
     [[nodiscard]] std::string getTipo() const;
-    //Método para mostrar si el material está prestado o no
+    //Metodo para mostrar si el material está prestado o no
     std::string esPrestado() const; 
 };
 #endif //MATERIALBIBLIOGRAFICO_H

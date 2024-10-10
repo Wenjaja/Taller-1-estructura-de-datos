@@ -15,7 +15,7 @@ class Libro: public MaterialBibliografico {
     //Constructor
     Libro(const std::string& nombre, const std::string& isbn, const std::string& autor,const std::string& tipo,
         const std::string& fechaPublicacion, const std::string& resumen);
-    //Método herdado de MaterialBibliografico, el cual se encarga de mostrar la informacion del libro
+    //Metodo herdado de MaterialBibliografico, el cual se encarga de mostrar la informacion del libro
     std::string mostrarInfo() const override;
     //Getters
     [[nodiscard]] std::string getFechaPublicacion() const;
