@@ -45,11 +45,11 @@ Para compilar y ejecutar el programa, utiliza los siguientes comandos:
 sistema = Sistema::getInstance(); sistema->cargarBiblioteca(); sistema->cargarUsuario();
 
 
-El objeto `sistema` de tipo `sistema` gestiona la carga de datos mediante los metodos "cargarBiblioteca" y "cargarUsuarios".
+El objeto `sistema` de tipo `sistema` gestiona la carga de datos mediante los metodos `"cargarBiblioteca"` y `"cargarUsuarios"`.
 
-### Ejemplo Datos de Prueba
+### Ejemplos Datos de Prueba
 
-En los archivos `biblioteca.txt` y `usuarios.txt` poseen datos con los que se pueden realizar las pruebas, aqui un ejemplo y su explicacion.
+En los archivos `biblioteca.txt` y `usuarios.txt` poseen datos con los que se pueden realizar las pruebas, aquí un ejemplo y su explicación.
 
 Bastian,4,0
 
