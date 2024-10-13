@@ -1,4 +1,4 @@
-# Integrante
+# Creador
 Benjamín Salas, 21.758.667-4, benjamin.salas02@alumnos.ucn.cl, Paralelo C2
 # Simulador de Biblioteca Digital
 
