@@ -1,26 +1,27 @@
 #include <iostream>
-#include "Libro.h"
 #include "Sistema.h"
 using namespace std;
 Sistema* sistema = nullptr; //atributo de sistema
-
-void menu() //Función para desplegar el menú
+//Función para desplegar el menú
+void menu()
 {
     cout<< "============================"<<endl;
     cout<< " Bienvenido a la biblioteca "<<endl;
-    cout<< " Ingrese la opción que desea:"<<endl;
+    cout<< " Ingrese la opcion que desea:"<<endl;
     cout<< " 1. Agregar Usuario."<<endl;
     cout<< " 2. Agregar Material (Libro/Revista)."<<endl;
     cout<< " 3. Prestar Materiales."<<endl;
     cout<< " 4. Devolver Materiales."<<endl;
-    cout<< " 5. Mostrar Materiales."<<endl;
+    cout<< " 5. Eliminar Usuario."<<endl;
     cout<< " 6. Buscar Material."<<endl;
-    cout<< " 7. Eliminar Usuario."<< endl;
-    cout<< " 8. Mostrar Usuarios."<<endl;
+    cout<< " 7. Buscar Usuario."<<endl;
+    cout<< " 8. Mostrar Materiales."<< endl;
+    cout<< " 9. Mostrar Usuarios."<<endl;
     cout<< " 0. Salir."<<endl;
     cout<< " > ";
 };
-string verificarId() //Función para verificar que el id del usuario sea único
+//Función para verificar que el id del usuario sea único
+string verificarId()
 {
     string idValido;
     bool valido = false;
@@ -41,7 +42,8 @@ string verificarId() //Función para verificar que el id del usuario sea único
     cout << "Id valido! "<< endl;
     return idValido;
 };
-void crearUsuario()//Función para crear un usuario
+//Función para crear un usuario
+void crearUsuario()
 {
     string nombreUsuario;
     cout<< "============================"<<endl;
@@ -50,7 +52,8 @@ void crearUsuario()//Función para crear un usuario
     string idUsuario = verificarId();
     cout<<sistema->crearUsuario(nombreUsuario,idUsuario)<<endl;
 };
-string verificarTipo() //Función para verificar que el tipo de material sea válido
+//Función para verificar que el tipo de material sea válido
+string verificarTipo()
 {
     string tipoValido;
     bool valido = false;
@@ -127,7 +130,8 @@ void crearMaterial()
 
 
 };
-string validarIdExistente()//Función para verificar que el id de un usuario existente sea válido
+//Función para verificar que el id de un usuario existente sea válido
+string validarIdExistente()
 {
     string idValido;
     cin>>idValido;
@@ -163,12 +167,9 @@ void prestarMaterial()
     string idUsuario;
     cin>>idUsuario;
     bool idValido = sistema->validarParaIdExistente(idUsuario);
-    cout<<"si aqui"<<endl;
     if (idValido && materialEncontrado)
     {
-        cout<<"aqui si entro a"<<endl;
         const string txt = sistema->prestarMaterial(tituloMaterialBuscado, idUsuario);
-        cout<<"si"<<endl;
         cout<<txt<<endl;
     }else
     {
@@ -210,7 +211,7 @@ void buscarMaterial()
     }
     else
     {
-        cout<<"Material no encontrado, intente nuevamente!"<<endl;
+        cout<<"Material no encontrado!"<<endl;
     }
 };
 //eliminarUsuario pide el id del usuario que se desea eliminar, para luego eliminarlo del sistema.
@@ -230,6 +231,25 @@ void eliminarUsuario()
         cout<<"Id no encontrado, intente nuevamente!"<<endl;
     }
 };
+//buscarUsuario pide el nombre y el id del usuario que se desea buscar, luego se imprimen los datos detallados del usuario.
+void buscarUsuario()
+{
+    string idUsuarioBuscar;
+    cout<< "============================"<<endl;
+    cout<<"Ingrese el id del usuario que busca: "<<endl;
+    cin>>idUsuarioBuscar;
+    const bool validarUsuario = sistema->validarParaIdExistente(idUsuarioBuscar);
+    if(validarUsuario)
+    {
+        const string txt = sistema->mostrarUsuarioBuscado(idUsuarioBuscar);
+        cout<<txt<<endl;
+    }
+    else
+    {
+        cout<<"Usuario no encontrado!"<<endl;
+    }
+
+};
 
 int main()
 {
@@ -237,7 +257,6 @@ int main()
     sistema = Sistema::getInstance();
     sistema->cargarBiblioteca();
     sistema->cargarUsuario();
-
     bool salir = true;
     while(salir) //Ciclo para el menú
     {
@@ -265,20 +284,24 @@ int main()
                 devolverMaterial();
                 break;
             case 5:
-                cout<< "============================"<<endl;
-                cout<<sistema->mostrarMaterial()<<endl;
+                eliminarUsuario();
                 break;
             case 6:
                 buscarMaterial();
                 break;
             case 7:
-                eliminarUsuario();
+                buscarUsuario();
                 break;
             case 8:
+                cout<< "============================"<<endl;
+                cout<<sistema->mostrarMaterial()<<endl;
+                break;
+            case 9:
                 cout<< "============================"<<endl;
                 cout<<sistema->mostrarUsuario()<<endl;
                 break;
             default:
+                cout<< "============================"<<endl;
                 cout<<"Opcion no valida!"<<endl;
                 break;
         }

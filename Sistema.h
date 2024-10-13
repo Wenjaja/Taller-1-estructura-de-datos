@@ -62,6 +62,8 @@ class Sistema {
     [[nodiscard]] bool validarMaterialExistente(const std::string& isbnExistente) const;
     //Metodo que muestra los usuarios de la biblioteca.
     [[nodiscard]] std::string mostrarUsuario() const;
+    //Metodo que muestra un usuario en especifico.
+    std::string mostrarUsuarioBuscado(const std::string& string) const;
 };
 
 

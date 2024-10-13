@@ -17,8 +17,8 @@ std::string Revista::mostrarInfo() const
 {
     std::string numEdicion = std::to_string(this->numEdicion);
     std::string info = MaterialBibliografico::mostrarInfo();
-    info += "Número de edición: " + numEdicion + "\n";
-    info += "Mes de publicación: " + mesPublicacion + "\n";
+    info += "Numero de edicion: " + numEdicion + "\n";
+    info += "Mes de publicacion: " + mesPublicacion + "\n";
     return info;
 }
 std::string Revista::getMesPublicacion() const

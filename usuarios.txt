@@ -1,0 +1,4 @@
+Juan,1,0
+Pepe,2,0
+Tomas,3,0
+Bastian,4,0

@@ -1,0 +1,5 @@
+Calculo,3,Maria,Libro,Disponible,23/7/2000,Ejercicios
+Algebra,1,Arturo,Libro,Disponible,2/01/1999,Ejercicios
+Fisica,4,Lorena,Libro,Disponible,05/12/2020,Ejercicios
+Programacion,24,Eric,Libro,Disponible,16/10/2005,Java
+Condorito,55,Pepo,Revista,Disponible,6,1949

@@ -48,7 +48,6 @@ std::string Sistema::crearMaterial(const std::string& tipo, const std::string& n
         {
             if (listaMaterial[i] == nullptr && tipo == "Libro")
             {
-                cout<<parametro1<<endl;
                 listaMaterial[i] = new Libro(nombre, id, nombreAutor, tipo, parametro1, parametro2);
                 contMateriales++;
                 return "Libro " + nombre + " agregado correctamente!";
@@ -139,7 +138,7 @@ std::string Sistema::prestarMaterial(const std::string& titulo,const std::string
 }
 std::string Sistema::devolverMaterial(const std::string& titulo, const std::string& id)
 {
-    Usuario* usuario = buscarUsuario(id);
+    Usuario* usuario = buscarUsuarioId(id);
     if(usuario == nullptr)
     {
         return "El usuario no se encuentra en la lista, intente con alguno que si lo este o agreguelo!";
@@ -231,24 +230,24 @@ Sistema::~Sistema()
 std::string Sistema::mostrarMaterialBuscado(const std::string& titulo) const
 {
     std::string resultado;
-    bool confirmacion = false;
-    for (int i = 0; i < contMateriales; ++i) {
+    for (int i = 0; i < 100; ++i) {
         if (listaMaterial[i]->getNombre() == titulo) {
             resultado += "El Material fue encontrado con exito:\n " + listaMaterial[i]->mostrarInfo();
-            confirmacion = true;
+            return resultado;
         }
-    }
-    if (confirmacion == true) {
-        return resultado;
     }
     return "El Material no fue encontrado, intente de nuevo!";
 }
 std::string Sistema::eliminarUsuario(const std::string& idUsuario) const
 {
-    for( int i= 0; i < contUsuarios; i++)
+    for( int i= 0; i < 100; i++)
     {
         if(listaUsuario[i] != nullptr && listaUsuario[i]->getId()==idUsuario)
         {
+            if(listaUsuario[i]->getnumPrestados() > 0)
+            {
+                return "El usuario no se puede eliminar debido a que tiene materiales asociado, devuelva los materiales e intente de nuevo!";
+            }
             delete listaUsuario[i];
             listaUsuario[i] == nullptr;
             return "Usuario eliminado correctamente";
@@ -314,6 +313,18 @@ std::string Sistema::mostrarUsuario() const
     return txt;
 }
 
+std::string Sistema::mostrarUsuarioBuscado(const std::string& idBuscado) const
+{
+    std::string resultado;
+    for (int i = 0; i < 100; ++i) {
+        if (listaUsuario[i]->getId() == idBuscado) {
+            resultado += "El Usuario fue encontrado con exito:\n " + listaUsuario[i]->mostrarInfo();
+            return resultado;
+        }
+    }
+    return "El Usuario no fue encontrado, intente de nuevo!";
+}
+
 
 void Sistema::guardarBiblioteca() const {
     std::ofstream archivo("biblioteca.txt");
@@ -361,10 +372,8 @@ void Sistema::cargarBiblioteca() {
             std::getline(iss, prestado, ',');
             std::getline(iss, parametro1, ',');
             std::getline(iss, parametro2, ',');
-            
 
-            
-            cout<<crearMaterialTXT(tipo, nombre, isbn, autor, parametro1, parametro2, prestado)<<endl;
+            crearMaterialTXT(tipo, nombre, isbn, autor, parametro1, parametro2, prestado);
         }
         archivo.close();
     } else {
@@ -379,13 +388,12 @@ void Sistema::cargarUsuario() {
             std::istringstream iss(linea);
             std::string nombre, id;
             int numPrestados;
-
             std::getline(iss, nombre, ',');
             std::getline(iss, id, ',');
             iss >> numPrestados;
             crearUsuario(nombre, id);
 
-            Usuario* usuario = buscarUsuario(id);
+            Usuario* usuario = buscarUsuarioId(id);
             for (int i = 0; i < numPrestados; ++i) {
                 std::string nombreMaterial, isbnMaterial;
                 std::getline(iss, nombreMaterial, ',');
@@ -398,6 +406,7 @@ void Sistema::cargarUsuario() {
                     std::cerr << "Material con ISBN " << isbnMaterial << " no encontrado en la biblioteca." << std::endl;
                 }
             }
+
         }
         archivoUsuarios.close();
     } else {
