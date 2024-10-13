@@ -1,1 +1,0 @@
-sexo,2,pepe,Libro,Disponible,23/7,si

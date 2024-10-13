@@ -1,3 +1,0 @@
-C:/Users/benja/CLionProjects/Taller-1-estructura-de-datos/cmake-build-debug/CMakeFiles/Taller_1_Estructura_de_Datos.dir
-C:/Users/benja/CLionProjects/Taller-1-estructura-de-datos/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/benja/CLionProjects/Taller-1-estructura-de-datos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
