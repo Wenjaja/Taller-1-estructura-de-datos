@@ -46,3 +46,15 @@ sistema = Sistema::getInstance(); sistema->cargarBiblioteca(); sistema->cargarUs
 
 
 El objeto `sistema` de tipo `sistema` gestiona la carga de datos mediante los metodos "cargarBiblioteca" y "cargarUsuarios".
+
+### Ejemplo Datos de Prueba
+
+En los archivos `biblioteca.txt` y `usuarios.txt` poseen datos con los que se pueden realizar las pruebas, aqui un ejemplo y su explicacion.
+
+Bastian,4,0
+
+Se presenta un `usuario` llamado `Bastian` de rut `4` y `0` materiales prestados.
+
+Calculo,3,Maria,Libro,Disponible,23/7/2000,Ejercicios
+
+Se presenta un `material` llamado `Calculo` con `ISBN "3"`, de `autor "Maria"`, de `tipo "Libro"`, con `estado "Disponible"`, `creado el "23/07/2000"`, con un `resumen "Ejercicios"`.
