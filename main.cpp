@@ -6,7 +6,6 @@ Sistema* sistema = nullptr; //atributo de sistema
 
 void menu() //Función para desplegar el menú
 {
-    cout<<"hola"<<endl;
     cout<< "============================"<<endl;
     cout<< " Bienvenido a la biblioteca "<<endl;
     cout<< " Ingrese la opción que desea:"<<endl;
@@ -27,6 +26,7 @@ string verificarId() //Función para verificar que el id del usuario sea único
     bool valido = false;
     do
     {
+        cout<< "============================"<<endl;
         cout << "Ingrese id del usuario: " << endl;
         cin >> idValido;
         if(sistema->validarParaIdNuevo(idValido))
@@ -44,6 +44,7 @@ string verificarId() //Función para verificar que el id del usuario sea único
 void crearUsuario()//Función para crear un usuario
 {
     string nombreUsuario;
+    cout<< "============================"<<endl;
     cout<<"Ingrese nombre de usuario: " <<endl;
     cin>>nombreUsuario;
     string idUsuario = verificarId();
@@ -86,6 +87,7 @@ void crearMaterial()
 {
     string nombreMaterial;
     string idMaterial;
+    cout<< "============================"<<endl;
     cout<<"Ingrese nombre del material: ";
     cin>>nombreMaterial;
     cout<<"Ingrese isbn del material: ";
@@ -153,6 +155,7 @@ string validarIdExistente()//Función para verificar que el id de un usuario exi
 void prestarMaterial()
 {
     string tituloMaterialBuscado;
+    cout<< "============================"<<endl;
     cout<<"Ingrese el titulo del material que desea prestar: ";
     cin>>tituloMaterialBuscado;
     const bool materialEncontrado = sistema->validarMaterialExistente(tituloMaterialBuscado);
@@ -176,6 +179,7 @@ void prestarMaterial()
 void devolverMaterial()
 {
     string tituloMaterialBuscado;
+    cout<< "============================"<<endl;
     cout<<"Ingrese el titulo del material que desea regresar: ";
     cin>>tituloMaterialBuscado;
     const bool materialEncontrado = sistema->validarMaterialExistente(tituloMaterialBuscado);
@@ -195,6 +199,7 @@ void devolverMaterial()
 void buscarMaterial()
 {
     string tituloMaterialBuscado;
+    cout<< "============================"<<endl;
     cout<<"Ingrese el titulo del material que busca: ";
     cin>>tituloMaterialBuscado;
     const bool materialEncontrado = sistema->validarMaterialExistente(tituloMaterialBuscado);
@@ -212,6 +217,7 @@ void buscarMaterial()
 void eliminarUsuario()
 {
     string idUsuario;
+    cout<< "============================"<<endl;
     cout<<"Ingrese el id del usuario que desea eliminar del sistema: ";
     cin>>idUsuario;
     const bool idValido = sistema->validarParaIdExistente(idUsuario);
@@ -259,6 +265,7 @@ int main()
                 devolverMaterial();
                 break;
             case 5:
+                cout<< "============================"<<endl;
                 cout<<sistema->mostrarMaterial()<<endl;
                 break;
             case 6:
@@ -268,6 +275,7 @@ int main()
                 eliminarUsuario();
                 break;
             case 8:
+                cout<< "============================"<<endl;
                 cout<<sistema->mostrarUsuario()<<endl;
                 break;
             default:
